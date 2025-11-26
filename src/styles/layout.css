@@ -1,0 +1,80 @@
+/* Layout shell */
+.app-shell {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #111827;
+  color: #f9fafb;
+}
+
+.app-header__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.app-header__user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Body */
+.app-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+/* Sidebar */
+.sidebar {
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+  background: #f9fafb;
+}
+
+.sidebar__section-title {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Main content */
+.app-main {
+  padding: 1.5rem;
+}
+
+/* Auth layout */
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}

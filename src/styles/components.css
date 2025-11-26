@@ -1,0 +1,117 @@
+/* Links in sidebar */
+.sidebar-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.sidebar-link--active {
+  background-color: #111827;
+  color: #f9fafb;
+  font-weight: 600;
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 480px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form__control {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.4rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+}
+
+.form__control:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb33;
+}
+
+.form__error {
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+.form__success {
+  font-size: 0.85rem;
+  color: #166534;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.45rem;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn--primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #d1d5db;
+}
+
+.btn--ghost-light {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #020a15;
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.75rem;
+}
+
+.table th {
+  background: #f3f4f6;
+  text-align: left;
+}
+
+/* Page headers */
+.page-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
