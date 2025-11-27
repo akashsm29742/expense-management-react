@@ -73,6 +73,10 @@ export default function AdminRolesPage() {
   return (
     <div>
       <h2 className="page-title">Role & Permissions Management</h2>
+      <h6 className="notification-important">
+        Note - After making changes in roles and permission, the changes for the
+        user will take effect after the user logs out and logs back in.
+      </h6>
 
       {error && <p className="form__error">{error}</p>}
 

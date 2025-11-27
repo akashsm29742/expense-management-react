@@ -153,10 +153,12 @@ export default function AdminUsersPage() {
             >
               <option value="">-- None --</option>
               {users
-                .filter((u) => u.role.name === "MANAGER")
+                .filter((u) => {
+                  return u.role.permissions.includes("APPROVE_EXPENSE");
+                })
                 .map((u) => (
                   <option key={u._id} value={u._id}>
-                    {u.name}
+                    {u.name} ({u.role.name})
                   </option>
                 ))}
             </select>
@@ -180,7 +182,8 @@ export default function AdminUsersPage() {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Manager</th>
+                <th>Manager Name</th>
+                <th>Manager Role</th>
                 <th>Change Role</th>
               </tr>
             </thead>
@@ -193,6 +196,12 @@ export default function AdminUsersPage() {
                   <td>
                     {u.manager
                       ? users.find((m) => m._id === u.manager._id)?.name ?? "-"
+                      : "-"}
+                  </td>
+                  <td>
+                    {u.manager
+                      ? users.find((m) => m._id === u.manager._id)?.role.name ??
+                        "-"
                       : "-"}
                   </td>
                   <td>

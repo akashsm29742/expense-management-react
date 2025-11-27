@@ -1,3 +1,4 @@
+import type { Permission } from "../auth/permissions";
 import httpClient from "./httpClient";
 
 export type RoleName = "EMPLOYEE" | "MANAGER" | "ADMIN";
@@ -9,6 +10,7 @@ export interface UserDto {
   role: {
     _id: string;
     name: RoleName;
+    permissions: Permission[];
   };
   manager: {
     _id: string;

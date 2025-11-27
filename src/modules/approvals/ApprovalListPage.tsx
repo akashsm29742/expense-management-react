@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { getExpensesReportApi } from "../../api/reportsApi";
-import { approveExpenseApi, type Expense } from "../../api/expenseApi";
+import {
+  approveExpenseApi,
+  rejectExpenseApi,
+  type Expense,
+} from "../../api/expenseApi";
 import { useAuth } from "../../context/AuthContext";
 
 export default function ApprovalListPage() {
@@ -29,13 +33,26 @@ export default function ApprovalListPage() {
   }, []);
 
   const handleApprove = async (id: string) => {
-    const comment = `Approved by ${user?.name}`;
+    const comment = `Approved by ${user?.name} (${user?.roleName}) - with ID ${user?.id}`;
     try {
       setApprovingId(id);
       await approveExpenseApi(id, comment);
       await loadExpenses();
     } catch (err: any) {
       setError(err?.response?.data?.message || "Failed to approve expense");
+    } finally {
+      setApprovingId(null);
+    }
+  };
+
+  const handleReject = async (id: string) => {
+    const comment = `Rejected by ${user?.name} (${user?.roleName}) - with ID ${user?.id}`;
+    try {
+      setApprovingId(id);
+      await rejectExpenseApi(id, comment);
+      await loadExpenses();
+    } catch (err: any) {
+      setError(err?.response?.data?.message || "Failed to reject expense");
     } finally {
       setApprovingId(null);
     }
@@ -78,6 +95,13 @@ export default function ApprovalListPage() {
                     disabled={approvingId === e._id}
                   >
                     {approvingId === e._id ? "Approving..." : "Approve"}
+                  </button>{" "}
+                  <button
+                    className="btn btn--ghost-light"
+                    onClick={() => handleReject(e._id)}
+                    disabled={approvingId === e._id}
+                  >
+                    {approvingId === e._id ? "Rejecting..." : "Reject"}
                   </button>
                 </td>
               </tr>

@@ -115,3 +115,40 @@
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
+
+.notification-container {
+  position: fixed; /* Or 'absolute' depending on placement */
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 1000; /* Ensure it appears above other content */
+  overflow: hidden; /* Important for sliding animations */
+}
+
+.notification-message {
+  background-color: #4caf50; /* Example background color */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Animation properties */
+  animation: slideInRight 0.5s ease-out forwards; /* Example animation */
+}
+
+.notification-important {
+  background-color: #cb1414; /* Example background color */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Animation properties */
+  animation: slideInRight 0.5s ease-out forwards; /* Example animation */
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  to {
+    transform: translateX(0); /* Move to its final position */
+  }
+}

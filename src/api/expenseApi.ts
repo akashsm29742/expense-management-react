@@ -37,3 +37,10 @@ export async function approveExpenseApi(expenseId: string, comment: string) {
   });
   return res.data;
 }
+
+export async function rejectExpenseApi(expenseId: string, comment: string) {
+  const res = await httpClient.post<Expense>(`/expenses/${expenseId}/reject`, {
+    comment,
+  });
+  return res.data;
+}
