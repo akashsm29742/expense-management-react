@@ -13,6 +13,19 @@ export interface Expense {
     _id: string;
     name: string;
     email: string;
+    role: {
+      _id: string;
+      name: string;
+    };
+  };
+  statusChangedBy: {
+    _id: string;
+    name: string;
+    email: string;
+    role: {
+      _id: string;
+      name: string;
+    };
   };
   createdAt: string;
 }

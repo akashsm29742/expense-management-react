@@ -85,23 +85,33 @@ export default function ReportsDashboardPage() {
         <table className="table">
           <thead>
             <tr>
-              <th>Employee</th>
+              <th>Employee (Role)</th>
               <th>Category</th>
               <th>Amount</th>
-              <th>Status</th>
               <th>Submitted On</th>
+              <th>Status</th>
+              <th>Approved / Rejected By (Role)</th>
             </tr>
           </thead>
           <tbody>
             {expenses.map((e) => (
               <tr key={e._id}>
-                <td>{e.employee.name ?? "-"}</td>
+                <td>
+                  {e.employee.name
+                    ? `${e.employee.name} (${e.employee.role.name})`
+                    : "-"}
+                </td>
                 <td>{e.category}</td>
                 <td>
                   {e.amount} {e.currency}
                 </td>
-                <td>{e.status}</td>
                 <td>{new Date(e.createdAt).toLocaleString()}</td>
+                <td>{e.status}</td>
+                <td>
+                  {e.statusChangedBy?.name
+                    ? `${e.statusChangedBy.name} (${e.statusChangedBy.role.name})`
+                    : "-"}
+                </td>
               </tr>
             ))}
           </tbody>
