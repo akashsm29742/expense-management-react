@@ -35,7 +35,9 @@ export default function AppLayout() {
       <header className="app-header">
         <h1 className="app-header__title">Expense Management</h1>
         <div className="app-header__user">
-          <span>{user?.name}</span>
+          <span>
+            {user?.name} ({user?.roleName})
+          </span>
           <button className="btn btn--ghost" onClick={logout}>
             Logout
           </button>
